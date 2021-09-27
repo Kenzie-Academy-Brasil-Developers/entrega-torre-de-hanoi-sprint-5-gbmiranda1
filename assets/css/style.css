@@ -1,0 +1,30 @@
+.varetas {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.cabecalho {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+.vareta {
+    height: 450px;
+    width: 10px;
+    background-color: black;
+}
+
+/* Modifica o cursor para que indique que está com um disco selecionado */
+.discSelected {
+    height: 100vh;
+    cursor: url(#);
+/* incluir imagem de disco selecionado? */
+}
