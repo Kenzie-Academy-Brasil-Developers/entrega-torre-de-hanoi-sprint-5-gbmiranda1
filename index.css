@@ -1,4 +1,5 @@
 .discSelected {
-    cursor: url(#), default;
+    height: 100vh;
+    cursor: url(#);
 /* incluir imagem de disco selecionado? */
 }
