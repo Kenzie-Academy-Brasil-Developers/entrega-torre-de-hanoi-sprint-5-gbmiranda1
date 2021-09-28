@@ -21,27 +21,38 @@ body {
     width: 10px;
     background-color: black;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
     align-items: center;
 }
 
 .disco {
-    width: 70px;
+    width: 50px;
     height: 10px;
     background-color: blue;
     margin-top: 1px;
 }
 
 .disco.um {
-    width: 50px;
+    width: 70px;
     background-color: red;
-    transition: 1s;
 }
 
 .disco.dois {
     width: 60px;
     background-color: green;
+}
+
+.zoneOn {
+    background-color: rgba(0, 0, 0, 0.289)
+}
+
+.isMove {
+    cursor: move;
+    opacity: 0.3;
+}
+
+.over {
+    background-color: rgba(79, 78, 78, 0.923);
 }
 
 
