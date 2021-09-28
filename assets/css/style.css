@@ -20,7 +20,6 @@ body {
     height: 450px;
     width: 10px;
     background-color: black;
-    margin-bottom: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
