@@ -46,3 +46,10 @@ body {
     right: 250%;
     background-color: green;
 }
+
+/* Modifica o cursor para que indique que está com um disco selecionado */
+.discSelected {
+    height: 100vh;
+    cursor: url(#);
+/* incluir imagem de disco selecionado? */
+}
