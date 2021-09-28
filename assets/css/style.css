@@ -17,7 +17,7 @@ body {
 }
 
 .vareta {
-    height: 450px;
+    height: 100px;
     width: 10px;
     background-color: black;
     display: flex;
@@ -36,7 +36,7 @@ body {
 .disco.um {
     width: 50px;
     background-color: red;
-    transition: all 1s;
+    transition: 1s;
 }
 
 .disco.dois {

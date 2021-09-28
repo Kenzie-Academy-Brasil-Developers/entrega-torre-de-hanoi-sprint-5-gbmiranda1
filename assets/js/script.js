@@ -1,6 +1,6 @@
 //Daniel
 const currentDisc = ''
-
+let numeroDisco = 3
 const moveDisc = evt => {
     const ramroad = evt.target //AQUI PENSO QUE O EVENT LISTENER ESTEJA EM UM ELEMENTO PAI
     if (ramroad.classList === 'vareta') {
@@ -23,10 +23,15 @@ const checkSize = (ramroad, currentDisc) => {
 }
 
 const disco_1 = document.querySelector(".disco.um");
-console.log(disco_1)
+disco_1.classList.add("zero")
 const vareta_offset = document.getElementById("offset")
 vareta_offset.appendChild(disco_1)
 
-
+function verificarVitoria() {
+    if (document.getElementById("end").children.length == numeroDisco) {
+        return true
+    }
+    return false
+}
 
 //Gabi
