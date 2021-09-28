@@ -20,4 +20,29 @@ body {
     height: 450px;
     width: 10px;
     background-color: black;
+    margin-bottom: auto;
+    position: relative;
+    top: 50px;
+}
+
+.disco {
+    width: 70px;
+    height: 10px;
+    background-color: blue;
+    position: relative;
+    top: 94%;
+    right: 300%;
+    margin-top: 1px;
+}
+
+.disco.um {
+    width: 50px;
+    right: 200%;
+    background-color: red;
+}
+
+.disco.dois {
+    width: 60px;
+    right: 250%;
+    background-color: green;
 }
