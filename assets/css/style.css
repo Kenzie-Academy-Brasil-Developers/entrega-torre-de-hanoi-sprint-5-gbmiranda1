@@ -21,35 +21,35 @@ body {
     width: 10px;
     background-color: black;
     margin-bottom: auto;
-    position: relative;
-    top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .disco {
     width: 70px;
     height: 10px;
     background-color: blue;
-    position: relative;
-    top: 94%;
-    right: 300%;
     margin-top: 1px;
 }
 
 .disco.um {
     width: 50px;
-    right: 200%;
     background-color: red;
+    transition: all 1s;
 }
 
 .disco.dois {
     width: 60px;
-    right: 250%;
     background-color: green;
 }
 
+
 /* Modifica o cursor para que indique que está com um disco selecionado */
+
 .discSelected {
     height: 100vh;
     cursor: url(#);
-/* incluir imagem de disco selecionado? */
+    /* incluir imagem de disco selecionado? */
 }
