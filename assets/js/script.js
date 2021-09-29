@@ -105,7 +105,7 @@ function dragOver(evt) {
         }
 
     }
-    verificarVitoria()
+    console.log(verificarVitoria())
 }
 
 function dragLeave(evt) {
