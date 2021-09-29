@@ -92,13 +92,8 @@ function dragOver(evt) {
 
     const discoMove = document.querySelector(".isMove")
     if (discoMove != null) {
-
         this.appendChild(discoMove)
-
     }
-
-
-
 }
 
 function dragLeave(evt) {

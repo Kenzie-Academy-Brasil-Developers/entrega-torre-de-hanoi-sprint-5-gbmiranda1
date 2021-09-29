@@ -1,8 +1,9 @@
 .varetas {
     display: flex;
-    align-items: center;
+    align-content: center;
     justify-content: space-around;
     height: 100%;
+    flex-wrap: wrap;
 }
 
 body {
@@ -36,6 +37,16 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.break {
+    width:100%
+}
+.base{
+    width: 95%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #995300;
+    box-shadow: 10px -15px 4px 0px rgba(0,0,0,0.25);
 }
 
 .vareta {
