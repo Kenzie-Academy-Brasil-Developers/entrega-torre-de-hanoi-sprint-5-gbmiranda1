@@ -39,30 +39,36 @@ disco_1.forEach(disco => {
     disco.addEventListener("dragend", dragEnd)
     disco.addEventListener("touchstart", dragStart)
     disco.addEventListener("touchend", dragEnd)
-    disco.addEventListener("touchmove", touchMove)
+
 })
 
+let discoAtual
 
 function dragStart(evt) {
-    dropZones.forEach(dropZone => {
-        dropZone.classList.add("zoneOn")
-    })
-    this.classList.add("isMove")
+    discoAtual = evt.target
+    console.log(discoAtual)
+    if (evt.target == evt.path[1].lastElementChild) {
+        dropZones.forEach(dropZone => {
+            dropZone.classList.add("zoneOn")
+        })
+        this.classList.add("isMove")
+    }
 }
 
-function touchMove(evt) {
-    console.log(evt)
-}
 
 function drag() {}
 
-function dragEnd(evt) {
-    console.log(evt)
-    dropZones.forEach(dropZone => {
-        dropZone.classList.remove("zoneOn")
-    })
+let verifica
 
-    this.classList.remove("isMove")
+function dragEnd(evt) {
+    verifica = evt.path[1].lastElementChild
+    if (evt.target == evt.path[1].lastElementChild) {
+        dropZones.forEach(dropZone => {
+            dropZone.classList.remove("zoneOn")
+        })
+
+        this.classList.remove("isMove")
+    }
 }
 
 
@@ -82,16 +88,24 @@ function dragEnter() {
 
 }
 
-function dragOver() {
-    this.classList.add("over")
+function dragOver(evt) {
 
     const discoMove = document.querySelector(".isMove")
-    this.appendChild(discoMove)
+    if (discoMove != null) {
+
+        this.appendChild(discoMove)
+
+    }
+
+
 
 }
 
-function dragLeave() {
+function dragLeave(evt) {
+
     this.classList.remove("over")
+
+
 }
 
 function drop() {}

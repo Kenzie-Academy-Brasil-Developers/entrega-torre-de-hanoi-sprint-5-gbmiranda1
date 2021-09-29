@@ -8,37 +8,63 @@
 body {
     height: 100vh;
     overflow-y: hidden;
+    font-family: 'Gemunu Libre', sans-serif;
+    background-image: url(../img/BackTorre.png);
+    background-size: 800px;
 }
 
 .cabecalho {
     text-align: center;
-    margin-top: 20px;
-    font-size: 2em;
+    margin-top: 30px;
+    font-size: 48px;
+    text-shadow: 3px -5px 5px rgba(0, 0, 0, 0.50);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.25) inset;
+    width: 250px;
+    height: 66px;
+    background-color: #c4c4c4;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .vareta {
-    height: 100px;
-    width: 10px;
+    height: 250px;
+    width: 20px;
     background-color: black;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 10px -15px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .disco {
-    width: 50px;
-    height: 10px;
+    width: 60px;
+    height: 20px;
     background-color: blue;
     margin-top: 1px;
+    border-radius: 15px;
+    box-shadow: -4px 4px 4px 5px rgba(0, 0, 0, 0.30) inset;
 }
 
 .disco.um {
-    width: 70px;
+    width: 90px;
     background-color: red;
 }
 
 .disco.dois {
-    width: 60px;
+    width: 75px;
     background-color: green;
 }
 
