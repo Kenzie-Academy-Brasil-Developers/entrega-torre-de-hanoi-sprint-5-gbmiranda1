@@ -77,11 +77,11 @@ function dragOver(evt) {
         if (this.children.length == 0) {
 
             this.appendChild(discoMove)
-            numerosDeJogadas++
+            numeroDeJogadas++
         } else if (this.children.length >= 1) {
             if (!checkSize(this, discoAtual)) {
                 this.appendChild(discoMove)
-                numerosDeJogadas++
+                numeroDeJogadas++
             }
         }
 
