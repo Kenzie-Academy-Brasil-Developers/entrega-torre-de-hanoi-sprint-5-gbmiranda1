@@ -75,7 +75,6 @@ function dragOver(evt) {
     const discoMove = document.querySelector(".isMove")
     if (discoMove != null) {
         if (this.children.length == 0) {
-
             this.appendChild(discoMove)
             numeroDeJogadas++
         } else if (this.children.length >= 1) {
