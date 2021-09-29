@@ -47,6 +47,9 @@ header {
     border-radius: 5px;
     background-color: #995300;
     box-shadow: 10px -15px 4px 0px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .vareta {
@@ -92,6 +95,7 @@ header {
     background-color: rgba(79, 78, 78, 0.923);
 }
 
+/* MENSAGENS */
 .pop {
     display: none;
     align-items: center;
@@ -103,6 +107,7 @@ header {
     left: 0px;
     overflow: hidden;
 }
+/* MENSAGEM VITORIA */
 .popup-winner {
     display: none;
     justify-content: center;
@@ -138,4 +143,68 @@ header {
 }
 .winner--show {
     display: flex;
+}
+/* MENSAGEM NÍVEL */
+.popup-nivel {
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30%;
+    width: 80%;
+    background-color: rgba(79, 78, 78, 0.4);
+    border-radius: 15px;
+    position: relative;
+    top: -50px;
+}
+.nivel {
+    margin-bottom: 10px;
+    font-size: 30px;
+    text-shadow: 2px -2px 2px white;
+}
+.nivel_button {
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 30px;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 5px;
+    width: 200px;
+    text-shadow: 2px -2px 2px white;
+}
+.nivel_button:hover {
+    color: darkred;
+    background-color: gray;
+    transition: 0.4s;
+}
+.nivel_button:active {
+    color: black;
+    background-color: lightgray;
+    transition: 0.4s;
+    border: black 2px solid;
+}
+.nivel--show {
+    display: flex;
+}
+
+/* BOTAO RESET */
+.reset_button {
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 20px;
+    background-color: lightgray;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 2px;
+    width: 150px;
+    text-shadow: 2px -2px 2px white;
+}
+.reset_button:hover {
+    background-color: lightgray;
+    border: black 2px solid;
+    transition: 0.4s;
+}
+.reset_button:active {
+    background-color: gray;
+    color: black;
+    transition: 0.4s;
 }
