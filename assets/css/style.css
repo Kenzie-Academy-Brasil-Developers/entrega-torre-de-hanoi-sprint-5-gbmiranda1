@@ -9,6 +9,8 @@ body {
     height: 100vh;
     overflow-y: hidden;
     font-family: 'Gemunu Libre', sans-serif;
+    background-image: url(../img/BackTorre.png);
+    background-size: 800px;
 }
 
 .cabecalho {
