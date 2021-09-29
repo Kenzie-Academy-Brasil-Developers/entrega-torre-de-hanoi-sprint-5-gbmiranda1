@@ -7,6 +7,7 @@ document.querySelector(".close-winner").addEventListener("click", deixarNone);
 
 function deixarNone() {
     const pop = document.querySelector(".pop")
+    pop.style.display = "none"
     pop.classList.remove("winner--show")
     const popup = document.querySelector(".popup-winner")
     popup.classList.remove("winner--show")
@@ -19,7 +20,6 @@ const checkSize = (ramroad, currentDisc) => {
 }
 
 function verificarVitoria() {
-    console.log(document.getElementById("end").children.length, numeroDisco)
     if (document.getElementById("end").children.length == numeroDisco) {
         return true
     }
@@ -131,7 +131,6 @@ document.querySelector(".reset_button").addEventListener("click", reset)
 
 function reset() {
     let array = document.querySelectorAll(".disco")
-    console.log(array[0].clientWidth)
     let aux = []
     aux.push(array[0])
     for (let i = 1; i < array.length; i++) {
@@ -168,9 +167,9 @@ function voltarInicio() {
 function escolherDificuldade(evt) {
     document.querySelector(".pop").style.display = "none"
     document.querySelector(".dificuldade").style.display = "flex"
-    console.log(btn)
     btn.style.display = "none";
     document.querySelector(".varetas").style.display = "flex"
+    numeroDisco = 3
     if (document.querySelector(".quatro") != null) {
         document.querySelector(".quatro").parentNode.removeChild(document.querySelector(".quatro"))
     }
