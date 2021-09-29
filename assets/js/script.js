@@ -92,8 +92,20 @@ function dragOver(evt) {
 
     const discoMove = document.querySelector(".isMove")
     if (discoMove != null) {
-        this.appendChild(discoMove)
+        if (this.children.length == 0) {
+            this.appendChild(discoMove)
+        } else if (this.children.length == 1) {
+            if (this.children[0].clientWidth > discoAtual.clientWidth) {
+                this.appendChild(discoMove)
+            }
+        } else if (this.children.length > 1) {
+            if (this.children[this.children.length - 1].clientWidth > discoAtual.clientWidth) {
+                this.appendChild(discoMove)
+            }
+        }
+
     }
+    verificarVitoria()
 }
 
 function dragLeave(evt) {
