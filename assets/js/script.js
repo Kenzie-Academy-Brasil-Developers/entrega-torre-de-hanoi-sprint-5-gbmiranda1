@@ -86,15 +86,20 @@ function dragOver(evt) {
         }
 
     } else {
-        this.classList.remove("over")
-    }
-    if (verificarVitoria()) {
-
+        this.classList.remove("over")  //Onde este over foi adicionado?
     }
 }
 
 function dragLeave(evt) {
-    this.classList.remove("over")
+    this.classList.remove("over") //Onde este over foi adicionado?
 }
 
-function drop() {}
+//Inclui a checkagem de vitória no drop
+function drop(evt) {
+    if (verificarVitoria()) {
+        const pop = document.querySelector(".pop")
+        pop.classList.add("winner--show")
+        const popup = document.querySelector(".popup-winner")
+        popup.classList.add("winner--show")
+    }
+}
