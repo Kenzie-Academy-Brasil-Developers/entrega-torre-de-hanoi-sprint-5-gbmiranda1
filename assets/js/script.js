@@ -37,29 +37,32 @@ disco_1.forEach(disco => {
     disco.addEventListener("dragstart", dragStart)
     disco.addEventListener("drag", drag)
     disco.addEventListener("dragend", dragEnd)
+    disco.addEventListener("touchstart", dragStart)
+    disco.addEventListener("touchend", dragEnd)
+    disco.addEventListener("touchmove", touchMove)
 })
 
 
-function dragStart() {
+function dragStart(evt) {
     dropZones.forEach(dropZone => {
         dropZone.classList.add("zoneOn")
     })
     this.classList.add("isMove")
 }
 
+function touchMove(evt) {
+    console.log(evt)
+}
+
 function drag() {}
 
-function dragEnd() {
+function dragEnd(evt) {
+    console.log(evt)
     dropZones.forEach(dropZone => {
         dropZone.classList.remove("zoneOn")
     })
+
     this.classList.remove("isMove")
-}
-
-
-function entrei(event) {
-    console.log(event.target)
-
 }
 
 
