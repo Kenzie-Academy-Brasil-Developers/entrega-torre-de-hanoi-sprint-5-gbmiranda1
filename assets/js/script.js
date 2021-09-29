@@ -3,6 +3,15 @@ const currentDisc = ''
 let numeroDisco = 3
 let numeroDeJogadas = 0;
 
+const btnclose = document.querySelector(".close-winner").addEventListener("click", deixarNone);
+
+function deixarNone() {
+    const pop = document.querySelector(".pop")
+    pop.classList.remove("winner--show")
+    const popup = document.querySelector(".popup-winner")
+    popup.classList.remove("winner--show")
+}
+
 const checkSize = (ramroad, currentDisc) => {
     const discAbove = ramroad.children[ramroad.children.length - 1]
     return currentDisc.clientWidth > discAbove.clientWidth
@@ -38,7 +47,9 @@ function dragStart(evt) {
 }
 
 
-function drag() {}
+function drag(evt) {
+
+}
 
 let verifica
 
@@ -50,6 +61,12 @@ function dragEnd(evt) {
         })
 
         this.classList.remove("isMove")
+    }
+    if (verificarVitoria()) {
+        const pop = document.querySelector(".pop")
+        pop.classList.add("winner--show")
+        const popup = document.querySelector(".popup-winner")
+        popup.classList.add("winner--show")
     }
 }
 
@@ -84,16 +101,14 @@ function dragOver(evt) {
             }
         }
 
-    } else {
-        this.classList.remove("over")
-    }
-    if (verificarVitoria()) {
-
     }
 }
 
 function dragLeave(evt) {
-    this.classList.remove("over")
+
 }
 
-function drop() {}
+//Inclui a checkagem de vitória no drop
+function drop(evt) {
+
+}
