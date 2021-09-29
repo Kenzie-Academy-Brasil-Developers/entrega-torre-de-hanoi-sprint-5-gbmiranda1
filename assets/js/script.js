@@ -1,7 +1,7 @@
 //Daniel
 const currentDisc = ''
 let numeroDisco = 3
-
+let numeroDeJogadas = 0;
 
 const checkSize = (ramroad, currentDisc) => {
     const discAbove = ramroad.children[ramroad.children.length - 1]
@@ -77,16 +77,20 @@ function dragOver(evt) {
         if (this.children.length == 0) {
 
             this.appendChild(discoMove)
+            numerosDeJogadas++
         } else if (this.children.length >= 1) {
             if (!checkSize(this, discoAtual)) {
                 this.appendChild(discoMove)
+                numerosDeJogadas++
             }
         }
 
     } else {
         this.classList.remove("over")
     }
-    // console.log(verificarVitoria())
+    if (verificarVitoria()) {
+
+    }
 }
 
 function dragLeave(evt) {
