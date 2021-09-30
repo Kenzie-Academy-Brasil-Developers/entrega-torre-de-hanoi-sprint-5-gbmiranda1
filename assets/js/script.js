@@ -154,6 +154,7 @@ function escolherDificuldade(evt) {
     } else if (evt.target.id == "hard") {
         createDisc("hard")
     }
+    reset()
 }
 
 function createDisc(dificuldade) {
@@ -179,4 +180,5 @@ function createDisc(dificuldade) {
             numberDisc = 5
         }
     }
+
 }
