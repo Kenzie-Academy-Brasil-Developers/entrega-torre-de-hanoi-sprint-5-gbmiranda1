@@ -1,10 +1,9 @@
-//Daniel
 let numberDisc = 3
 let numberOfMoves = 0;
 
 document.querySelector(".close-winner").addEventListener("click", enableNone);
 
-function enableNone() {
+const enableNone = () => {
     const pop = document.querySelector(".pop")
     pop.classList.remove("winner--show")
     const popup = document.querySelector(".popup-winner")
@@ -17,11 +16,10 @@ const checkSize = (ramroad, currentDisc) => {
     return currentDisc.clientWidth > discAbove.clientWidth
 }
 
-function checkWinner() {
+const checkWinner = () => {
     if (document.getElementById("end").children.length == numberDisc) {
         return true
     }
-
     return false
 }
 
@@ -37,7 +35,7 @@ disc_1.forEach(disco => {
 let currenteDisc
 let elementParent
 
-function dragStart(evt) {
+const dragStart = evt => {
     currenteDisc = evt.target
     elementParent = evt.closest
     if (evt.target == evt.closest.lastElementChild) {
@@ -48,14 +46,11 @@ function dragStart(evt) {
     }
 }
 
-
-function dragEnd(evt) {
-    
+const dragEnd = evt => {  
     if (evt.target == evt.closest.lastElementChild) {
         dropZones.forEach(dropZone => {
             dropZone.classList.remove("zoneOn")
         })
-
         this.classList.remove("isMove")
         if (elementParent != evt.closest) {
             numberOfMoves++
@@ -70,18 +65,13 @@ function dragEnd(evt) {
     }
 }
 
-
-
-
-/* soltar disco*/
 const dropZones = document.querySelectorAll(".vareta")
 
 dropZones.forEach(zones => {
     zones.addEventListener("dragover", dragOver)
 })
 
-function dragOver(evt) {
-
+const dragOver = evt => {
     const discoMove = document.querySelector(".isMove")
     if (discoMove != null) {
         if (this.children.length == 0) {
@@ -95,14 +85,14 @@ function dragOver(evt) {
     }
 }
 
-function incrementoSpan() {
+const incrementoSpan = () => {
     document.querySelector("#counter").innerText = numberOfMoves;
 }
 incrementoSpan()
 
 document.querySelector(".reset_button").addEventListener("click", reset)
 
-function reset() {
+const reset = () => {
     let array = document.querySelectorAll(".disco")
     let arrayAux = []
     arrayAux.push(array[0])
@@ -130,14 +120,14 @@ let btn = document.querySelector(".popup-nivel")
 btn.addEventListener("click", escolherDificuldade);
 document.querySelector(".dificuldade").addEventListener("click", voltarInicio);
 
-function voltarInicio() {
+const voltarInicio = () => {
     document.querySelector(".pop").style.display = "flex"
     document.querySelector(".popup-nivel").style.display = "flex"
     document.querySelector(".dificuldade").style.display = "none";
     document.querySelector(".varetas").style.display = "none";
 }
 
-function escolherDificuldade(evt) {
+const escolherDificuldade = evt => {
     document.querySelector(".pop").style.display = "none"
     document.querySelector(".dificuldade").style.display = "flex"
     btn.style.display = "none";
@@ -157,7 +147,7 @@ function escolherDificuldade(evt) {
     reset()
 }
 
-function createDisc(dificuldade) {
+const createDisc = dificuldade => {
     if (document.querySelector(".quatro") == null) {
         const div = document.createElement("div");
         div.classList.add("disco")
