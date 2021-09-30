@@ -181,6 +181,7 @@ function escolherDificuldade(evt) {
     } else if (evt.target.id == "hard") {
         criarDisco("hard")
     }
+    reset()
 }
 
 function criarDisco(dificuldade) {
@@ -206,4 +207,5 @@ function criarDisco(dificuldade) {
             numeroDisco = 5
         }
     }
+
 }
