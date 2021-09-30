@@ -1,13 +1,11 @@
 //Daniel
-const currentDisc = ''
-let numeroDisco = 3
-let numeroDeJogadas = 0;
+let numberDisc = 3
+let numberOfMoves = 0;
 
-document.querySelector(".close-winner").addEventListener("click", deixarNone);
+document.querySelector(".close-winner").addEventListener("click", enableNone);
 
-function deixarNone() {
+function enableNone() {
     const pop = document.querySelector(".pop")
-    pop.style.display = "none"
     pop.classList.remove("winner--show")
     const popup = document.querySelector(".popup-winner")
     popup.classList.remove("winner--show")
@@ -19,31 +17,30 @@ const checkSize = (ramroad, currentDisc) => {
     return currentDisc.clientWidth > discAbove.clientWidth
 }
 
-function verificarVitoria() {
-    if (document.getElementById("end").children.length == numeroDisco) {
+function checkWinner() {
+    if (document.getElementById("end").children.length == numberDisc) {
         return true
     }
 
     return false
 }
 
-const disco_1 = document.querySelectorAll(".disco")
+const disc_1 = document.querySelectorAll(".disco")
 
 
 
-disco_1.forEach(disco => {
+disc_1.forEach(disco => {
     disco.addEventListener("dragstart", dragStart)
-    disco.addEventListener("drag", drag)
     disco.addEventListener("dragend", dragEnd)
 })
 
-let discoAtual
-let aux
+let currenteDisc
+let elementParent
 
 function dragStart(evt) {
-    discoAtual = evt.target
-    aux = evt.path[1]
-    if (evt.target == evt.path[1].lastElementChild) {
+    currenteDisc = evt.target
+    elementParent = evt.closest
+    if (evt.target == evt.closest.lastElementChild) {
         dropZones.forEach(dropZone => {
             dropZone.classList.add("zoneOn")
         })
@@ -52,29 +49,21 @@ function dragStart(evt) {
 }
 
 
-function drag(evt) {
-
-}
-
-let verifica
-let status = false
-
 function dragEnd(evt) {
-    verifica = evt.path[1].children.length + 1
-    if (evt.target == evt.path[1].lastElementChild) {
+    
+    if (evt.target == evt.closest.lastElementChild) {
         dropZones.forEach(dropZone => {
             dropZone.classList.remove("zoneOn")
         })
 
         this.classList.remove("isMove")
-        if (verifica > evt.path[1].children.length && aux != evt.path[1]) {
-            numeroDeJogadas++
+        if (elementParent != evt.closest) {
+            numberOfMoves++
             incrementoSpan()
         }
     }
-    if (verificarVitoria()) {
+    if (checkWinner()) {
         const pop = document.querySelector(".pop")
-        pop.style.display = "flex"
         pop.classList.add("winner--show")
         const popup = document.querySelector(".popup-winner")
         popup.classList.add("winner--show")
@@ -88,15 +77,8 @@ function dragEnd(evt) {
 const dropZones = document.querySelectorAll(".vareta")
 
 dropZones.forEach(zones => {
-    zones.addEventListener("dragenter", dragEnter)
     zones.addEventListener("dragover", dragOver)
-    zones.addEventListener("dragleave", dragLeave)
-    zones.addEventListener("drop", drop)
 })
-
-function dragEnter() {
-
-}
 
 function dragOver(evt) {
 
@@ -105,7 +87,7 @@ function dragOver(evt) {
         if (this.children.length == 0) {
             this.appendChild(discoMove)
         } else if (this.children.length >= 1) {
-            if (!checkSize(this, discoAtual)) {
+            if (!checkSize(this, currenteDisc)) {
                 this.appendChild(discoMove)
             }
         }
@@ -113,17 +95,8 @@ function dragOver(evt) {
     }
 }
 
-function dragLeave(evt) {
-
-}
-
-//Inclui a checkagem de vitória no drop
-function drop(evt) {
-
-}
-
 function incrementoSpan() {
-    document.querySelector("#counter").innerText = numeroDeJogadas;
+    document.querySelector("#counter").innerText = numberOfMoves;
 }
 incrementoSpan()
 
@@ -131,25 +104,25 @@ document.querySelector(".reset_button").addEventListener("click", reset)
 
 function reset() {
     let array = document.querySelectorAll(".disco")
-    let aux = []
-    aux.push(array[0])
+    let arrayAux = []
+    arrayAux.push(array[0])
     for (let i = 1; i < array.length; i++) {
-        for (let j = 0; j < aux.length; j++) {
-            if (array[i].clientWidth < aux[j].clientWidth) {
-                aux.splice(j, 0, array[i])
+        for (let j = 0; j < arrayAux.length; j++) {
+            if (array[i].clientWidth < arrayAux[j].clientWidth) {
+                arrayAux.splice(j, 0, array[i])
                 break;
             }
-            if (j == aux.length - 1) {
-                aux.push(array[i])
+            if (j == arrayAux.length - 1) {
+                arrayAux.push(array[i])
                 break;
             }
         }
     }
-    aux.reverse()
-    for (let i = 0; i < aux.length; i++) {
-        document.querySelector("#start").appendChild(aux[i])
+    arrayAux.reverse()
+    for (let i = 0; i < arrayAux.length; i++) {
+        document.querySelector("#start").appendChild(arrayAux[i])
     }
-    numeroDeJogadas = 0;
+    numberOfMoves = 0;
     incrementoSpan()
 }
 
@@ -169,7 +142,7 @@ function escolherDificuldade(evt) {
     document.querySelector(".dificuldade").style.display = "flex"
     btn.style.display = "none";
     document.querySelector(".varetas").style.display = "flex"
-    numeroDisco = 3
+    numberDisc = 3
     if (document.querySelector(".quatro") != null) {
         document.querySelector(".quatro").parentNode.removeChild(document.querySelector(".quatro"))
     }
@@ -177,13 +150,13 @@ function escolherDificuldade(evt) {
         document.querySelector(".cinco").parentNode.removeChild(document.querySelector(".cinco"))
     }
     if (evt.target.id == "normal") {
-        criarDisco("normal")
+        createDisc("normal")
     } else if (evt.target.id == "hard") {
-        criarDisco("hard")
+        createDisc("hard")
     }
 }
 
-function criarDisco(dificuldade) {
+function createDisc(dificuldade) {
     if (document.querySelector(".quatro") == null) {
         const div = document.createElement("div");
         div.classList.add("disco")
@@ -193,7 +166,7 @@ function criarDisco(dificuldade) {
         div.addEventListener("drag", drag)
         div.addEventListener("dragend", dragEnd)
         document.querySelector("#start").appendChild(div)
-        numeroDisco = 4
+        numberDisc = 4
         if (dificuldade == "hard" && document.querySelector(".cinco") == null) {
             const div2 = document.createElement("div");
             div2.classList.add("disco")
@@ -203,7 +176,7 @@ function criarDisco(dificuldade) {
             div2.addEventListener("drag", drag)
             div2.addEventListener("dragend", dragEnd)
             document.querySelector("#start").appendChild(div2)
-            numeroDisco = 5
+            numberDisc = 5
         }
     }
 }
